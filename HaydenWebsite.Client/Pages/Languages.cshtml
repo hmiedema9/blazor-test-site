@@ -1,0 +1,41 @@
+﻿@using HaydenWebsite.Shared
+@page "/languages"
+@inject HttpClient Http
+
+<h1>My Favorite Languages</h1>
+
+<p>These are being fetched from my Blazor server side API, which is running C# in the browser!</p>
+
+@if (languages == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in languages)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Rating</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@functions {
+    ProgrammingLanguage[] languages;
+
+    protected override async Task OnInitAsync()
+    {
+        languages = await Http.GetJsonAsync<ProgrammingLanguage[]>("api/Data/ProgrammingLanguages");
+    }
+}
