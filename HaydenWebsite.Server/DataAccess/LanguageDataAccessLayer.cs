@@ -1,5 +1,5 @@
 ﻿using HaydenWebsite.Server.DataAccess;
-using HaydenWebsite.Shared.Models;  
+using HaydenWebsite.Shared.Models;
 using Microsoft.EntityFrameworkCore;  
 using System;  
 using System.Collections.Generic;  

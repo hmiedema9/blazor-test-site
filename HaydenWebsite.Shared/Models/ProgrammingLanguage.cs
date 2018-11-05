@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HaydenWebsite.Shared
+namespace HaydenWebsite.Shared.Models
 {
     public class ProgrammingLanguage
     {

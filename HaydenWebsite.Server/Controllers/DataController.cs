@@ -1,4 +1,4 @@
-﻿using HaydenWebsite.Shared;
+﻿using HaydenWebsite.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -34,12 +34,12 @@ namespace HaydenWebsite.Server.Controllers
         
         [HttpGet("[action]")]
         public IEnumerable<ProgrammingLanguage> ProgrammingLanguages()
-        { 
+        {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new ProgrammingLanguage
             {
                 Name = Languages[rng.Next(Languages.Length)],
-                Rating = rng.Next()
+                Rating = rng.Next(1,10)
             });
         }
     }
